@@ -7,87 +7,69 @@ To segment the image using global thresholding, adaptive thresholding and Otsu's
 2. OpenCV
 
 ## Algorithm
-
 ### Step1:
-<br>
+Translation moves the image along the x or y-axis.
 
 ### Step2:
-<br>
+Scaling resizes the image by scaling factors.
 
 ### Step3:
-<br>
+Shearing distorts the image along one axis.
 
 ### Step4:
-<br>
+Reflection flips the image horizontally or vertically.
 
 ### Step5:
-<br>
+Rotation rotates the image by a given angle.
+
 
 ## Program
-
+### Name: Swaminathan.V
+### Register Number: 212223110057
 ```python
-# Load the necessary packages
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
 
+image = cv2.imread('oph.jpg') 
+gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))  
+plt.title("Original Image")
+plt.axis('off')
+plt.show()
 
+_, global_thresholded = cv2.threshold(gray_image, 127, 255, cv2.THRESH_BINARY)
+adaptive_thresholded = cv2.adaptiveThreshold(gray_image, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
+_, otsu_thresholded = cv2.threshold(gray_image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+plt.imshow(global_thresholded, cmap='gray')
+plt.title("Global Thresholding")
+plt.axis('off')
+plt.show()
 
+plt.imshow(adaptive_thresholded, cmap='gray')
+plt.title("Adaptive Thresholding")
+plt.axis('off')
+plt.show()
 
-
-# Read the Image and convert to grayscale
-
-
-
-
-# Use Global thresholding to segment the image
-
-
-
-
-# Use Adaptive thresholding to segment the image
-
-
-
-
-# Use Otsu's method to segment the image 
-
-
-
-
-# Display the results
-
-
-
-
-
+plt.imshow(otsu_thresholded, cmap='gray')
+plt.title("Otsu's Method")
+plt.axis('off')
+plt.show()
 ```
 ## Output
-
 ### Original Image
-<br>
-<br>
-<br>
-<br>
-<br>
+![original ](https://github.com/user-attachments/assets/816a06e8-2ce9-43bc-a7a5-7e98a53f6176)
 
 ### Global Thresholding
-<br>
-<br>
-<br>
-<br>
-<br>
+![global](https://github.com/user-attachments/assets/678b5f68-9899-47d1-aaa3-d949e3205d05)
+
 
 ### Adaptive Thresholding
-<br>
-<br>
-<br>
-<br>
-<br>
+![Adaptive](https://github.com/user-attachments/assets/b3db81ea-b26f-47cc-b688-c4d95d46b4b2)
+
 
 ### Optimum Global Thesholding using Otsu's Method
-<br>
-<br>
-<br>
-<br>
-<br>
+![otsu](https://github.com/user-attachments/assets/802a1c52-1d37-41b0-87e1-219642dedc1b)
 
 
 ## Result
